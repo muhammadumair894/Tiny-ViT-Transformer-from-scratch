@@ -5,7 +5,7 @@ from data.vit_data_processor import DataPreprocessor
 from model.utils import live_plot_dual, lr_schedule, save_checkpoints, train_epoch, validate_epoch
 from model.vit_transformer import VisionTransformer
 import torch.optim as optim
-
+import logging
 def main():
     # build configs
     vitconfig = VitConfig()
