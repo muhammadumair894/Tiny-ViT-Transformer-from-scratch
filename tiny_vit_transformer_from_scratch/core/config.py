@@ -53,7 +53,7 @@ class Config:
         self.num_workers = 1
         self.pin_memory = True
         self.shuffle = True
-        self.data_dir = "./dataset"
+        self.data_dir = "/kaggle/input/imagenetmini-1000/imagenet-mini"
         self.max_img_cls = 20 #250              # to None after sanity check
         self.max_cls = n_class                    # to None after sanity check
         self.is_balanced = False
