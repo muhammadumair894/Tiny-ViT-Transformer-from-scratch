@@ -16,16 +16,24 @@ def main():
     beta1, beta2 = config.beta1, config.beta2
     eps = config.eps
     w_decay = config.w_decay
-    # amsgrad = config.amsgrad
     num_epochs = config.num_epochs
     min_lr = config.min_lr
-    # warmup_iters = config.warmup_iters
-    # total_iters = config.total_iters
     device = config.device
     label_smoothing = config.label_smoothing
 
     # vit model
-    model = VisionTransformer(vitconfig)
+    model = VisionTransformer(
+        n_embd=vitconfig.n_embd,
+        n_block=vitconfig.n_block,
+        h_size=vitconfig.h_size,
+        p_size=vitconfig.p_size,
+        im_size=vitconfig.im_size,
+        c_dim=vitconfig.c_dim,
+        n_class=vitconfig.n_class,
+        d_rate=vitconfig.d_rate,
+        bias=vitconfig.bias,
+        h_dim=vitconfig.h_dim
+    )
 
     # Loss function
     criterion = nn.CrossEntropyLoss(label_smoothing=label_smoothing)
@@ -46,7 +54,6 @@ def main():
     data_preprocessor = DataPreprocessor(config)
     train_loader, val_loader, _ = data_preprocessor.create_dataloaders()
     
-
     # start training
     train_losses, train_accs = [], []
     val_losses, val_accs = [], []
