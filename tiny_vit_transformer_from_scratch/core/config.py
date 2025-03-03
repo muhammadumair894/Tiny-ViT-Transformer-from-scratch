@@ -74,7 +74,7 @@ class Config:
         self.shuffle = True
 
         # Point this to your ImageNet directory
-        self.data_dir = "/path/to/imagenet"
+        self.data_dir = "/kaggle/input/imagenetmini-1000/imagenet-mini"
 
         # Turn off dataset-size-limiting
         self.max_img_cls = None
